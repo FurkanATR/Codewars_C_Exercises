@@ -5,8 +5,14 @@
 bool isValidWalk(const char *walk) {
     int i;
     char loc[] = {0,0};
-  
     i = 0;
+  
+    while (walk[i])
+      i++;
+    if (i != 10)
+      return false;
+    i = 0;
+  
     while (walk[i])
       {
         if (walk[i] == 'n')
@@ -19,7 +25,7 @@ bool isValidWalk(const char *walk) {
           loc[1]--;
         i++;
       }
-    if (loc[0]+loc[1] == 0)
+    if (loc[0] == 0 && loc[1] == 0)
       return true;
     else
       return false;
